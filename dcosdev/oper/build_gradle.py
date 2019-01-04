@@ -9,10 +9,10 @@ repositories {
     jcenter()
     mavenCentral()
     maven {
-        url "http://downloads.mesosphere.com/maven/"
+        url "https://s3-us-west-1.amazonaws.com/px-dcos/maven/"
     }
     maven {
-        url "http://downloads.mesosphere.com/maven-snapshot/"
+        url "https://s3-us-west-1.amazonaws.com/px-dcos/maven-snapshot/"
     }
 }
 
@@ -20,11 +20,13 @@ ext {
     junitVer = "4.12"
     systemRulesVer = "1.16.0"
     mockitoVer = "1.9.5"
+    dcosSDKVer = "0.40.5-1.3.3"
+
 }
 
 dependencies {
-    compile "mesosphere:scheduler:%(version)s"
-    testCompile "mesosphere:testing:%(version)s"
+    compile "mesosphere:scheduler:${dcosSDKVer}"
+    testCompile "mesosphere:testing:${dcosSDKVer}"
 }
 
 distributions {
@@ -36,3 +38,4 @@ distributions {
 
 mainClassName = 'com.mesosphere.sdk.operator.scheduler.Main'
 """
+
