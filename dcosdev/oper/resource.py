@@ -21,21 +21,21 @@ template = """
         "x86-64":{
           "contentHash":[ { "algo":"sha256", "value":"%(cli-darwin)s" } ],
           "kind":"executable",
-          "url":"https://downloads.mesosphere.com/dcos-commons/artifacts/%(version)s/dcos-service-cli-darwin"
+          "url":"https://s3-us-west-1.amazonaws.com/px-dcos/dcos-commons/artifacts/%(version)s/dcos-service-cli-darwin"
         }
       },
       "linux":{
         "x86-64":{
           "contentHash":[ { "algo":"sha256", "value":"%(cli-linux)s" } ],
           "kind":"executable",
-          "url":"https://downloads.mesosphere.com/dcos-commons/artifacts/%(version)s/dcos-service-cli-linux"
+          "url":"https://s3-us-west-1.amazonaws.com/px-dcos/dcos-commons/artifacts/%(version)s/dcos-service-cli-linux"
         }
       },
       "windows":{
         "x86-64":{
           "contentHash":[ { "algo":"sha256", "value":"%(cli-win)s" } ],
           "kind":"executable",
-          "url":"https://downloads.mesosphere.com/dcos-commons/artifacts/%(version)s/dcos-service-cli.exe"
+          "url":"https://s3-us-west-1.amazonaws.com/px-dcos/dcos-commons/artifacts/%(version)s/dcos-service-cli.exe"
         }
       }
     }

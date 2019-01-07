@@ -37,7 +37,7 @@ import oper
 import basic
 
 
-sdk_versions = ['0.42.1', '0.53.0']
+sdk_versions = ['0.40.5-1.3.3']
 
 def package_name():
     with open('universe/package.json', 'r') as f:
@@ -48,7 +48,8 @@ def sdk_version():
          package = json.load(f)
     return package['tags'][0]
 def sha_values():
-    r = requests.get('https://downloads.mesosphere.com/dcos-commons/artifacts/'+sdk_version()+'/SHA256SUMS')
+    r = requests.get('https://s3-us-west-1.amazonaws.com/px-dcos/dcos-commons/artifacts/'+sdk_version()+'/SHA256SUMS')
+    #print(r)
     return {e[1]:e[0] for e in map(lambda e: e.split('  '), str(r.text).split('\n')[:-1])}
 
 def build_repo(version='snapshot', releaseVersion=0):
