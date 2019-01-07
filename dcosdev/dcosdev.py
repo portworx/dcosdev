@@ -161,7 +161,7 @@ def main():
         dockerClient = docker.from_env()
         for jp in java_projects:
             print('\n>>> INFO: gradle build starting for ' + jp)
-            c = dockerClient.containers.run('gradle:4.8.0-jdk8', 'gradle check distZip', detach=True, auto_remove=True,
+            c = dockerClient.containers.run('gradle:4.8.0-jdk8', 'gradle -s check distZip', detach=True, auto_remove=True, user='root',
                                         volumes={project_path+'/java/'+jp : {'bind': '/home/gradle/project'}}, working_dir='/home/gradle/project')
             g = c.logs(stream=True)
             for l in g:
